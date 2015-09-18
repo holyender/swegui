@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Visualization tool for Semantic Word Embeddings (SWE)</title>
+
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/bootstrap-table.css" rel="stylesheet"/>
+    <link href="/static/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link href="/static/css/dashboard.css" rel="stylesheet">
+    <link href="/static/css/jquery-ui.css" rel="stylesheet">
+    <style type="text/css">
+    .form-control{
+        display:inline;
+        width:auto;
+    }
+    </style>
+
+    <script src="/static/js/jquery-1.10.2.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/bootstrap-table.js"></script>
+    <script src="/static/js/bootstrap-datetimepicker.js"></script>
+    <script src="/static/js/jquery-ui.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">SWE</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm-3 col-md-2 sidebar" style="display:block;">
+            <ul class="nav nav-sidebar">
+
+                <li id="findwordnn"><a href="/findwordnn/">Find Word NN</a></li>
+                <li id="wordvec"><a href="/wordvec/">Word Vec</a></li>
+            </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+    </div>
+</div>
+
+
+{% block script %}
+{% endblock %}
+
+</body>
+</html>

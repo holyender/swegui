@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="sub-header">Word Vec</h2>
+
+    {% if wordvec %}
+        <form action="/wordvec/" method="POST" class="form-horizontal">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label  class="col-sm-2 control-label" >title:</label>
+                <input type="text" class="form-control" name="title" value="{{ wordvec.title }}">
+            </div>
+
+            <div class="form-group">
+                <label  class="col-sm-2 control-label" >content:</label>
+                <textarea class="form-control" name="content" rows="15" cols="80">{{ wordvec.content }}</textarea>
+            </div>
+
+            <input type="hidden" name="id" value="{{ wordvec.id }}">
+
+            <div class="form-group">
+                <label  class="col-sm-2 control-label" ></label>
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+        </form>
+    {% else %}
+        <form action="/wordvec/" method="GET" class="form-horizontal">
+            <div class="form-group">
+                <label  class="col-sm-2 control-label" >title:</label>
+                <input type="text" class="form-control" name="word">
+            </div>
+            <div class="form-group">
+                <label  class="col-sm-2 control-label" ></label>
+                <button type="submit" class="btn btn-success">Search</button>
+            </div>
+        </form>
+    {% endif %}
+    
+{% endblock %}
+
+
+{% block script %}
+    <script>
+
+        $('#table').bootstrapTable()
+
+        $("#wordvec").addClass('active')
+
+    </script>
+{% endblock %}

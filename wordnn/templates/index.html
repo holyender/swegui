@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="sub-header">Visualization tool for Semantic Word Embeddings (SWE)</h2>
+
+    <h3>Draft Version from <a href="http://home.ustc.edu.cn/~quanliu/" target="_blank">Quan Liu</a> of USTC, China</h3>
+    <h3>Tool for SWE GUI Web design: Python <a href="https://www.djangoproject.com/" target="_blank">Django</a></h3>
+
+    <hr>
+    <br>
+    <h2>1. GUI Interface for Finding Nearest Words for the User's Input Word</h2>
+    <h3>(This is the basic request proposed by professor <a href="https://wiki.eecs.yorku.ca/user/hj/" target="_blank">Hui Jiang</a>, York University, Canada.)</h3>
+
+
+    <form method='post'>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Click to Find Nearest Words" name="submit" class="btn btn-primary">
+    <input type="submit" value="Random Word" name="submit" class="btn btn-success">
+    <br>
+    <br>
+    <br>
+    </form>
+
+{% endblock %}
+
+
+{% block script %}
+    <script>
+
+        $("#findwordnn").addClass('active')
+
+        {% if error %}
+            alert("{{ error }}")
+        {% endif %}
+
+    </script>
+{% endblock %}
